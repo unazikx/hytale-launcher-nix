@@ -2,8 +2,8 @@ name: Update Hytale Launcher
 
 on:
   schedule:
-    - cron: '0 * * * *'  # Every hour
-  workflow_dispatch:     # Manual trigger
+    - cron: "0 0 * * 0" # Every hour
+  workflow_dispatch: # Manual trigger
 
 permissions:
   contents: write
