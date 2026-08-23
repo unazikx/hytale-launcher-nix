@@ -196,6 +196,10 @@ let
       # Install desktop file
       mkdir -p $out/share/applications
       cp ${desktopItem}/share/applications/hytale-launcher.desktop $out/share/applications
+
+      # Install desktop icon
+      mkdir -p $out/share/icons/hicolor/256x256/apps
+      cp ${desktopIcon} $out/share/icons/hicolor/256x256/apps/hytale-launcher.png
     '';
 
     desktopItem = pkgs.makeDesktopItem {
@@ -214,6 +218,11 @@ let
       startupWMClass = "com.hypixel.HytaleLauncher";
       terminal = false;
       type = "Application";
+    };
+
+    desktopIcon = pkgs.fetchurl {
+      url = "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/hytale.png";
+      sha256 = "sha256-pBATM9a3+b2fRlo0kFGaoWe/YABcEI6X80TrrmNdnio=";
     };
 
     meta = with pkgs.lib; {
